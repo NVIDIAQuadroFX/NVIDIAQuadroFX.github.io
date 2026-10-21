@@ -27,6 +27,11 @@ jobs:
         with:
           lfs: true
 
+      - name: Materialize LFS files
+        run: |
+          git lfs pull
+          test "$(wc -c < files/eaglercraft-26.2-r46-music.html)" -gt 100000000
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
