@@ -1,4 +1,4 @@
-/* Dicestack88 Liquid Glass — controlled single-pass SVG refraction.
+/* Rishi's Gaming Liquid Glass — controlled single-pass SVG refraction.
    Real refraction is limited to surfaces selected by surfaceSelectors.
    This script now respects the user's `glass` preference ("liquid" vs "frosted")
    stored in localStorage and listens for the `glass-mode-change` CustomEvent and
@@ -67,51 +67,3 @@
 
     const isChromium = /Chrome|Chromium|Edg\//.test(navigator.userAgent) && !/OPR\//.test(navigator.userAgent);
     const supportsBlur = window.CSS && CSS.supports && CSS.supports('backdrop-filter', 'blur(1px)');
-
-    if (!isChromium || !supportsBlur) {
-      root.classList.remove('lg-refraction-supported', 'lg-svg-filter-supported');
-      return;
-    }
-
-    addFilter();
-
-    function applyMode(mode) {
-      const deviceMemory = navigator.deviceMemory || 0;
-      const cores = navigator.hardwareConcurrency || 0;
-      if (mode === 'liquid' && ((deviceMemory && deviceMemory < 1.5) || (cores && cores < 2))) {
-        mode = 'frosted';
-      }
-
-      if (mode === 'liquid') {
-        surfaces.forEach(el => el.classList.add('lg-lens-active'));
-        root.classList.add('lg-refraction-supported', 'lg-svg-filter-supported');
-      } else {
-        surfaces.forEach(el => el.classList.remove('lg-lens-active'));
-        root.classList.remove('lg-refraction-supported', 'lg-svg-filter-supported');
-      }
-    }
-
-    const initialMode = localStorage.getItem('glass') || 'liquid';
-    applyMode(initialMode);
-
-    window.addEventListener('glass-mode-change', (e) => {
-      const mode = (e && e.detail) ? e.detail : (localStorage.getItem('glass') || 'liquid');
-      applyMode(mode);
-    });
-
-    window.addEventListener('storage', (e) => {
-      if (e.key === 'glass') {
-        applyMode(e.newValue || 'liquid');
-      }
-    });
-
-    root.liquidGlass = root.liquidGlass || {};
-    root.liquidGlass.applyMode = applyMode;
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init, { once: true });
-  } else {
-    init();
-  }
-})();
