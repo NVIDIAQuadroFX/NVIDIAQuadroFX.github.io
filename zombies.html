@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Black Ops 1 Zombies | Launcher</title>
+  <title>Black Ops 1 Zombies | Play</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: radial-gradient(circle at center, #1a0808 0%, #050505 100%);
+      background: radial-gradient(circle at center, #1f0808 0%, #050505 100%);
       color: #fff;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       height: 100vh;
@@ -16,83 +16,78 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 20px;
     }
 
-    .launcher-card {
-      background: rgba(20, 20, 20, 0.85);
-      border: 1px solid rgba(220, 38, 38, 0.4);
+    .card {
+      background: rgba(18, 18, 18, 0.9);
+      border: 1px solid #3d1212;
       padding: 40px;
-      border-radius: 12px;
-      max-width: 500px;
+      border-radius: 10px;
+      max-width: 480px;
       box-shadow: 0 0 30px rgba(220, 38, 38, 0.2);
     }
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-
-    p {
+    h1 { font-size: 26px; margin-bottom: 8px; color: #fff; }
+    .subtitle { color: #dc2626; font-weight: bold; font-size: 13px; margin-bottom: 20px; }
+    
+    .controls {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 13px;
       color: #aaa;
-      font-size: 14px;
-      line-height: 1.5;
       margin-bottom: 25px;
+      text-align: left;
     }
+    .controls span { color: #fff; font-weight: bold; }
 
-    .badge {
-      display: inline-block;
-      background: rgba(34, 197, 94, 0.15);
-      color: #22c55e;
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      font-size: 11px;
-      font-weight: bold;
-      padding: 4px 8px;
-      border-radius: 4px;
-      margin-bottom: 15px;
-    }
-
-    .launch-btn {
-      display: inline-block;
+    /* The critical button that opens without iframe */
+    .play-btn {
+      display: block;
       width: 100%;
       background: #dc2626;
       color: #fff;
-      padding: 14px 28px;
+      padding: 14px;
       font-size: 16px;
       font-weight: bold;
-      border: none;
       border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
-      transition: all 0.2s ease;
       text-decoration: none;
+      transition: background 0.2s;
     }
+    .play-btn:hover { background: #ef4444; }
 
-    .launch-btn:hover {
-      background: #ef4444;
-      box-shadow: 0 0 25px rgba(239, 68, 68, 0.6);
-      transform: translateY(-2px);
-    }
-
-    .back-link {
+    .back-btn {
       display: inline-block;
-      margin-top: 20px;
-      color: #777;
+      margin-top: 15px;
+      color: #666;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 12px;
     }
-    .back-link:hover { color: #fff; }
+    .back-btn:hover { color: #fff; }
   </style>
 </head>
 <body>
 
-  <div class="launcher-card">
-    <span class="badge">WASM MULTI-THREADED</span>
-    <h1>Call of Duty: Black Ops Zombies</h1>
-    <p>
-      Includes Kino der Toten, Five, Dead Ops Arcade, and co-op multiplayer. 
-      Runs in an optimized standalone game window with shared-memory and pointer-lock enabled.
-    </p>
+  <div class="card">
+    <h1>Black Ops 1 Zombies</h1>
+    <div class="subtitle">Kino der Toten • Five • Multiplayer Co-Op</div>
 
-    <!-- Opens directly in an app-style window so SharedArrayBuffer is allowed -->
-    <but
+    <div class="controls">
+      <p><span>Movement:</span> W, A, S, D</p>
+      <p><span>Aim / Shoot:</span> Mouse + Left Click</p>
+      <p><span>Interact / Buy:</span> F</p>
+      <p><span>Reload:</span> R</p>
+    </div>
+
+    <!-- Opens cleanly with severed parent links so SharedArrayBuffer is allowed -->
+    <a href="https://vel.gg/bsz" class="play-btn" rel="noopener noreferrer">
+      ▶ LAUNCH GAME DIRECTLY
+    </a>
+
+    <a href="index.html" class="back-btn">← Back to Menu</a>
+  </div>
+
+</body>
+</html>
