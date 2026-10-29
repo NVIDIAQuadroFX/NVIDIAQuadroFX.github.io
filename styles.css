@@ -55,7 +55,7 @@ body.light-mode {
   --blue: #3d7dd8;
   --red: #ba3d3d;
   --menu-glow: rgba(126, 203, 111, 0.1);
-  --block-shadow: 0 7px 0 rgba(0, 0, 0, 0.14), inset 0 2px 0 rgba(255,255,255,0.14);
+  --block-shadow: 0 7px 0 rgba(0,0,0,0.14), inset 0 2px 0 rgba(255,255,255,0.14);
 }
 
 * {
@@ -401,6 +401,17 @@ a {
   background:
     linear-gradient(180deg, rgba(111, 191, 87, 0.14), rgba(43, 34, 27, 0.92)),
     linear-gradient(180deg, rgba(72, 140, 63, 0.9), rgba(31, 24, 20, 0.98));
+}
+
+.card-ksp {
+  background:
+    linear-gradient(180deg, rgba(110, 255, 152, 0.15), rgba(23, 40, 29, 0.93)),
+    linear-gradient(180deg, rgba(35, 112, 67, 0.95), rgba(12, 31, 18, 0.98));
+}
+
+.card-ksp .card-link,
+.card-ksp .card-icon {
+  color: #b9ffca;
 }
 
 .card3 {
