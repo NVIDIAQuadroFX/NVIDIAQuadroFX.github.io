@@ -3,36 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Web Strike | CS 1.6</title>
+  <title>Web Strike</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { width: 100%; height: 100%; overflow: hidden; background: #000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-
-    /* Top navigation bar */
-    .top-bar {
-      height: 38px;
+    html, body {
       width: 100%;
-      background: #111;
-      border-bottom: 1px solid #222;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 16px;
-      z-index: 100;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
     }
-    .top-bar a {
-      color: #fff;
+
+    /* Floating exit button */
+    .exit-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 9999;
+      background: rgba(10, 10, 10, 0.75);
+      color: #ccc;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 12px;
+      font-size: 11px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       text-decoration: none;
-      font-size: 13px;
-      font-weight: bold;
+      border-radius: 4px;
+      transition: all 0.2s;
     }
-    .top-bar a:hover { color: #f59e0b; }
-    .top-bar span { color: #888; font-size: 12px; }
+    .exit-btn:hover {
+      background: #dc2626;
+      color: #fff;
+      border-color: #dc2626;
+    }
 
-    /* The Game Frame */
+    /* Full-screen game canvas */
     iframe {
-      width: 100%;
-      height: calc(100% - 38px);
+      width: 100vw;
+      height: 100vh;
       border: none;
       display: block;
       background: #000;
@@ -41,15 +47,13 @@
 </head>
 <body>
 
-  <div class="top-bar">
-    <a href="index.html">← Back to Menu</a>
-    <span>Web Strike (Counter-Strike Browser FPS)</span>
-  </div>
+  <!-- Floating exit button to return to your main menu -->
+  <a href="index.html" class="exit-btn">← Menu</a>
 
-  <!-- pointer-lock is essential for mouse aiming -->
+  <!-- Loads webstrike.me directly on your page with full input and WebGL access -->
   <iframe 
-    src="https://webstrikegame.com/" 
-    allow="autoplay; gamepad; fullscreen; pointer-lock" 
+    src="https://webstrike.me" 
+    allow="autoplay; gamepad; fullscreen; pointer-lock; cross-origin-isolated; accelerometer; gyroscope"
     allowfullscreen>
   </iframe>
 
