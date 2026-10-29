@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Ops 1 Zombies</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { width: 100%; height: 100%; overflow: hidden; background: #000; font-family: sans-serif; }
+
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 35px;
+      background: rgba(10, 10, 10, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 999;
+      border-bottom: 1px solid #222;
+    }
+    .top-bar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .top-bar a:hover { color: #dc2626; }
+    .top-bar span { color: #888; font-size: 12px; }
+
+    iframe {
+      width: 100%;
+      height: calc(100% - 35px);
+      margin-top: 35px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="index.html">← Back to Menu</a>
+    <span>Call of Duty: Black Ops 1 Zombies</span>
+  </div>
+
+  <iframe 
+    src="https://vel.gg/bsz" 
+    allowfullscreen 
+    allow="autoplay; gamepad; fullscreen; pointer-lock">
+  </iframe>
+
+</body>
+</html>
